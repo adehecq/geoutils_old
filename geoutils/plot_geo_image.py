@@ -32,8 +32,8 @@ if __name__=='__main__':
 
     #optional arguments
     parser.add_argument('-cmap', dest='cmap', type=str, default='default', help='str, a matplotlib colormap string (default is from rcParams).')
-    parser.add_argument('-vmin', dest='vmin', type=str, default='default', help='float, the minimum value for colorscale, or can be expressed as a percentile e.g. 5% (default is calculated min value).')
-    parser.add_argument('-vmax', dest='vmax', type=str, default='default', help='float, the maximum value for colorscale, or can be expressed as a percentile e.g. 95% (default is calculated max value).')
+    parser.add_argument('-vmin', dest='vmin', type=str, default='default', help='float, the minimum value for colorscale, or can be expressed as a percentile e.g. 5%% (default is calculated min value).')
+    parser.add_argument('-vmax', dest='vmax', type=str, default='default', help='float, the maximum value for colorscale, or can be expressed as a percentile e.g. 95%% (default is calculated max value).')
     parser.add_argument('-band', dest='band', type=int, default=0, help='int, which band to display (start at 0) for multiband images (Default is 0).')
     parser.add_argument('-nocb', dest='nocb', help='If set, will not display a colorbar (Default is to display the colorbar).',action='store_true')
     parser.add_argument('-clabel', dest='clabel', type=str, default='', help='str, the label for the colorscale (Default is empty).')
@@ -157,7 +157,7 @@ if __name__=='__main__':
     fig = plt.figure(figsize=figsize)
 
     # plot
-    plt.imshow(data,extent=(xmin,xmax,ymin,ymax),cmap=cmap,interpolation='nearest',vmin=vmin,vmax=vmax)
+    plt.imshow(data,extent=(xmin,xmax,ymin,ymax),cmap=cmap,interpolation='none',vmin=vmin,vmax=vmax)
 
     # colorbar
     if args.nocb==False:
